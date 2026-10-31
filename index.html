@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Happy birthday, Bunni</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fdf0ee;--ink:#3b2540;--soft:#7a5d80;--card:#fff;--paper:#fffaf2;--line:#ecd3d6;--rose:#c2456b;--on-rose:#fff;--gold:#e0a03a;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#1c1733;--ink:#f6e9ef;--soft:#c4abc9;--card:#2a2347;--paper:#2a2347;--line:#41376b;--rose:#f29bb5;--on-rose:#2a1030;--gold:#ffd08a}}
+:root[data-theme="dark"]{--bg:#1c1733;--ink:#f6e9ef;--soft:#c4abc9;--card:#2a2347;--paper:#2a2347;--line:#41376b;--rose:#f29bb5;--on-rose:#2a1030;--gold:#ffd08a}
+*,*::before,*::after{box-sizing:inherit}
+html{background:var(--bg);scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:18px/1.65 "Fraunces",Georgia,serif;overflow-x:hidden}
+#fx{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:5}
+header{text-align:center;padding:15vh 1.25rem 3rem}
+h1{font-size:clamp(3rem,14vw,6.8rem);line-height:.98;margin:0 0 1.5rem;font-weight:600;letter-spacing:-.02em;font-variation-settings:"opsz" 144}
+header p{max-width:30ch;margin:0 auto;color:var(--soft);font-size:1.15rem}
+.sec{max-width:620px;margin:0 auto;padding:3.5rem 1.25rem}
+h2{font-size:1.9rem;line-height:1.2;margin:0 0 .4rem;font-weight:600}
+.hint{color:var(--soft);margin:0 0 1.5rem}
+button{font:inherit;color:inherit;cursor:pointer}
+button:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+.btn{background:var(--rose);color:var(--on-rose);border:0;border-radius:999px;padding:.75rem 1.6rem;font-weight:600}
+.btn.ghost{background:transparent;color:var(--ink);border:2px solid var(--line)}
+.btn:active{transform:scale(.97)}
+/* letter */
+.fold{display:grid;grid-template-rows:0fr;transition:grid-template-rows .8s ease}
+.fold.open{grid-template-rows:1fr}
+.fold>div{overflow:hidden}
+.letter{background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:2rem 1.6rem;font-family:"Caveat",cursive;font-size:1.6rem;line-height:1.45;margin-top:1rem;box-shadow:0 10px 30px -18px var(--rose)}
+.letter p{margin:0 0 1rem}
+.sign{text-align:right;margin-top:1.5rem!important}
+/* cake */
+.cakewrap{text-align:center}
+#cake{width:min(260px,70%);height:auto;display:block;margin:0 auto 1rem}
+.candle{fill:var(--gold)}.c1{fill:var(--rose)}.c2{fill:var(--card);stroke:var(--line);stroke-width:2}
+.ice{fill:none;stroke:var(--rose);stroke-width:5;stroke-linecap:round}
+.flame{transform-box:fill-box;transform-origin:50% 100%;animation:flick 1.4s ease-in-out infinite;transition:opacity .25s}
+.smoke{fill:none;stroke:var(--soft);stroke-width:3;stroke-linecap:round;opacity:0}
+.out .flame{opacity:0;animation:none}
+.out .smoke{animation:puff 2s ease-out}
+@keyframes flick{0%,100%{transform:scale(1,1) rotate(-1deg)}50%{transform:scale(.92,1.08) rotate(2deg)}}
+@keyframes puff{0%{opacity:.8;transform:translateY(6px)}100%{opacity:0;transform:translateY(-26px)}}
+#wishnote{min-height:3.4em;margin:0 0 1rem;font-style:italic;color:var(--soft)}
+/* balloons */
+.balloons{display:flex;flex-wrap:wrap;gap:1.1rem .9rem;justify-content:center;padding:.5rem 0 1.5rem}
+.b{position:relative;width:62px;height:76px;border:0;border-radius:50% 50% 48% 48%;background:var(--h);animation:bob 3.4s ease-in-out infinite;transition:transform .25s,opacity .25s}
+.b::after{content:"";position:absolute;left:50%;top:100%;width:2px;height:26px;background:var(--line)}
+.b:nth-child(2n){animation-delay:-1.2s}.b:nth-child(3n){animation-delay:-2.1s}
+.b.pop{transform:scale(1.5);opacity:0;pointer-events:none;animation:none}
+@keyframes bob{0%,100%{translate:0 0}50%{translate:0 -8px}}
+#bmsg{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:1.2rem 1.3rem;min-height:5.5rem;font-size:1.15rem}
+/* coupons */
+.coupons{list-style:none;margin:0;padding:0;display:grid;gap:.8rem}
+.coupon{width:100%;text-align:left;background:var(--card);border:2px dashed var(--line);border-radius:12px;padding:1rem 1.2rem;display:flex;justify-content:space-between;gap:1rem;align-items:center}
+.coupon small{color:var(--rose);font-weight:600;white-space:nowrap}
+.coupon.got{border-style:solid;border-color:var(--rose)}
+#cnote{margin-top:1rem;color:var(--soft);font-style:italic;min-height:1.6em}
+/* ask */
+.ask{text-align:center}
+.ask .row{display:flex;gap:.8rem;justify-content:center;flex-wrap:wrap;margin:1.5rem 0}
+#answer{font-size:1.25rem;min-height:3em}
+footer{text-align:center;color:var(--soft);padding:2rem 1rem 4rem}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<canvas id="fx" aria-hidden="true"></canvas>
+
+<header>
+  <h1 id="title">Happy birthday</h1>
+  <p>Today is yours. I made you a few things to open.</p>
+</header>
+
+<section class="sec" id="letter">
+  <h2>A letter, just for you</h2>
+  <p class="hint">Take a minute with this one.</p>
+  <button class="btn" id="openLetter" aria-expanded="false" aria-controls="letterBox">Open the letter</button>
+  <div class="fold" id="letterBox"><div>
+    <article class="letter" id="letterText"></article>
+  </div></div>
+</section>
+
+<section class="sec cakewrap" id="wish">
+  <h2>Make a wish</h2>
+  <p class="hint">Close your eyes, think of it, then blow out the candle.</p>
+  <svg id="cake" viewBox="0 0 200 210" role="img" aria-label="Birthday cake with one lit candle">
+    <path class="smoke" d="M100 62 C92 48 108 40 100 26"/>
+    <g class="flame"><path d="M100 36 C86 56 89 72 100 77 C111 72 114 56 100 36Z" fill="#ffb347"/><path d="M100 52 C94 63 95 71 100 73 C105 71 106 63 100 52Z" fill="#fff1b8"/></g>
+    <rect class="candle" x="95" y="76" width="10" height="44" rx="2"/>
+    <rect class="c1" x="42" y="118" width="116" height="40" rx="9"/>
+    <path class="ice" d="M52 128 q9 13 18 0 q9 13 18 0 q9 13 18 0 q9 13 18 0 q9 13 18 0"/>
+    <rect class="c2" x="22" y="152" width="156" height="52" rx="11"/>
+  </svg>
+  <p id="wishnote" aria-live="polite"></p>
+  <button class="btn" id="blow">Blow out the candle</button>
+</section>
+
+<section class="sec" id="pop">
+  <h2>Pop a balloon</h2>
+  <p class="hint">Each one has something I wanted to tell you.</p>
+  <div class="balloons" id="balloons"></div>
+  <div id="bmsg" aria-live="polite">Pick any colour.</div>
+</section>
+
+<section class="sec" id="gifts">
+  <h2>Birthday gifts to claim</h2>
+  <p class="hint">No expiry date. Tap the ones you’d like.</p>
+  <ul class="coupons" id="coupons"></ul>
+  <p id="cnote" aria-live="polite"></p>
+</section>
+
+<section class="sec ask" id="ask">
+  <h2>One more thing</h2>
+  <p>I’d like to celebrate you properly, in person, whenever you’re ready.</p>
+  <div class="row">
+    <button class="btn" id="yes">Yes, I’d like that</button>
+    <button class="btn ghost" id="think">Let me think about it</button>
+  </div>
+  <p id="answer" aria-live="polite"></p>
+</section>
+
+<footer>Made today, just for you.</footer>
+
+<script>
+// Personalise here: her name and yours (both optional).
+const HER = "Bunni";
+const FROM = "";
+
+const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
+const $ = id => document.getElementById(id);
+
+// title + letter
+if (HER) $("title").innerHTML = "Happy birthday,<br>" + HER.replace(/</g,"&lt;");
+const lines = [
+  "Dear " + (HER || "you") + ",",
+  "Happy birthday.",
+  "I wanted to give you more than a message in a chat, so I made you a small corner of the internet instead. It isn’t much, but I made it today with you on my mind the whole time.",
+  "Since I started getting to know you, I’ve noticed how you carry yourself: warm without trying, strong without making a show of it. You make people feel at ease, and I don’t think you even realise you’re doing it.",
+  "I’m not in a hurry. I just want you to know that I see you, I’m grateful for you, and I’m honoured to be one of the people who gets to wish you a happy birthday.",
+  "I hope today is full of the people and things you love. And I hope you eat a lot of cake."
+];
+$("letterText").innerHTML = lines.map(t => "<p>" + t + "</p>").join("") +
+  '<p class="sign">With all sincerity,<br>' + (FROM ? FROM.replace(/</g,"&lt;") : "someone who’s very glad you were born") + "</p>";
+
+$("openLetter").onclick = e => {
+  $("letterBox").classList.add("open");
+  e.target.setAttribute("aria-expanded","true");
+  e.target.hidden = true;
+  burst(innerWidth/2, innerHeight*.4, 30);
+};
+
+// confetti
+const cv = $("fx"), cx = cv.getContext("2d");
+let ps = [], raf = 0;
+const cols = ["#f29bb5","#ffd08a","#c2456b","#9ad7c4","#b9a7ff","#ffb347"];
+function fit(){ cv.width = innerWidth; cv.height = innerHeight; }
+fit(); addEventListener("resize", fit);
+function burst(x, y, n){
+  if (reduce) return;
+  for (let i=0;i<(n||40);i++) ps.push({x,y,vx:(Math.random()-.5)*11,vy:-Math.random()*11-3,r:Math.random()*4+3,c:cols[i%cols.length],a:Math.random()*6,l:1});
+  if (!raf) raf = requestAnimationFrame(tick);
+}
+function tick(){
+  cx.clearRect(0,0,cv.width,cv.height);
+  ps = ps.filter(p => p.l > 0);
+  ps.forEach(p => {
+    p.vy += .25; p.x += p.vx; p.y += p.vy; p.vx *= .99; p.a += .2; p.l -= .012;
+    cx.save(); cx.globalAlpha = Math.max(p.l,0); cx.translate(p.x,p.y); cx.rotate(p.a);
+    cx.fillStyle = p.c; cx.fillRect(-p.r, -p.r/2, p.r*2, p.r); cx.restore();
+  });
+  raf = ps.length ? requestAnimationFrame(tick) : 0;
+}
+addEventListener("load", () => setTimeout(() => { burst(innerWidth*.25, innerHeight*.35, 45); burst(innerWidth*.75, innerHeight*.35, 45); }, 500));
+
+// candle
+let lit = true;
+$("blow").onclick = () => {
+  const cake = $("cake"), note = $("wishnote");
+  lit = !lit;
+  cake.classList.toggle("out", !lit);
+  cake.setAttribute("aria-label", "Birthday cake with " + (lit ? "one lit candle" : "an extinguished candle"));
+  if (!lit) {
+    $("blow").textContent = "Light it again";
+    note.textContent = "Whatever you wished for, I’m rooting for it.";
+    const r = cake.getBoundingClientRect();
+    burst(r.left + r.width/2, r.top + r.height*.3, 60);
+  } else {
+    $("blow").textContent = "Blow out the candle";
+    note.textContent = "Go on, make another one. You’re allowed.";
+  }
+};
+
+// balloons
+const bm = [
+  "You make ordinary days feel like they’re worth paying attention to.",
+  "I love how you laugh. I’m still working on getting more of it.",
+  "You’re kind in the quiet moments, when nobody is keeping score.",
+  "I hope this year is gentler with you than you are with yourself.",
+  "Thank you for letting me get to know you.",
+  "May every candle you ever blow out come true.",
+  "You deserve someone who notices the small things. I’m noticing.",
+  "Today is about you. Everything else can wait."
+];
+const hues = [340,18,45,150,190,260,300,10];
+let popped = 0;
+hues.forEach((h,i) => {
+  const b = document.createElement("button");
+  b.className = "b"; b.style.setProperty("--h", "hsl(" + h + " 75% 68%)");
+  b.setAttribute("aria-label", "Balloon " + (i+1));
+  b.onclick = () => {
+    b.classList.add("pop"); popped++;
+    const r = b.getBoundingClientRect();
+    burst(r.left + r.width/2, r.top + r.height/2, 25);
+    $("bmsg").textContent = popped === bm.length ? bm[i] + " That was the last one. Every word was meant." : bm[i];
+  };
+  $("balloons").appendChild(b);
+});
+
+// gifts
+const gifts = [
+  "A coffee, and I’ll listen to the whole story",
+  "A sunset walk with our phones away",
+  "Dinner at a place you choose",
+  "You pick the playlist, I’ll pretend I know every song",
+  "A whole day out with no plan at all"
+];
+let got = 0;
+gifts.forEach(g => {
+  const li = document.createElement("li"), b = document.createElement("button");
+  b.className = "coupon";
+  b.innerHTML = "<span></span><small>Claim</small>";
+  b.firstChild.textContent = g;
+  b.onclick = () => {
+    if (b.classList.contains("got")) return;
+    b.classList.add("got"); b.querySelector("small").textContent = "Claimed ✓"; got++;
+    const r = b.getBoundingClientRect(); burst(r.left + r.width/2, r.top, 30);
+    $("cnote").textContent = got === 1 ? "Claimed. I’ll make it happen." : got + " claimed. I’m already looking forward to it.";
+  };
+  li.appendChild(b); $("coupons").appendChild(li);
+});
+
+// ask
+$("yes").onclick = e => {
+  $("answer").textContent = "Then it’s a date. I’ll make it a good one.";
+  const r = e.target.getBoundingClientRect(); burst(r.left + r.width/2, r.top, 80);
+};
+$("think").onclick = () => {
+  $("answer").textContent = "Take all the time you need. Happy birthday either way.";
+};
+</script>
+</body>
+</html>
